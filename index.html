@@ -150,7 +150,6 @@
       z-index: 2;
     }
 
-    /* Clean Classic Wax Seal */
     .wax-seal {
       position: relative;
       z-index: 5;
@@ -228,7 +227,7 @@
       background: var(--card-ivory);
       border: 2px solid var(--border-gold);
       border-radius: 26px;
-      padding: 48px 18px 42px 18px;
+      padding: 55px 18px 42px 18px;
       box-shadow: 0 20px 45px rgba(27, 56, 45, 0.1), 0 4px 15px rgba(0,0,0,0.03);
       position: relative;
       text-align: center;
@@ -245,24 +244,23 @@
       pointer-events: none;
     }
 
-    /* Classic Floral Corner Bouquets inside Card */
-    .floral-corner {
+    /* Enhanced Large Floral Bouquets in Corners */
+    .floral-bouquet {
       position: absolute;
-      width: 68px;
-      height: 68px;
+      width: 110px;
+      height: 110px;
       pointer-events: none;
-      opacity: 0.85;
       z-index: 2;
     }
 
-    .floral-top-left {
-      top: 10px;
-      left: 10px;
+    .floral-bouquet-left {
+      top: 0;
+      left: 0;
     }
 
-    .floral-top-right {
-      top: 10px;
-      right: 10px;
+    .floral-bouquet-right {
+      top: 0;
+      right: 0;
       transform: scaleX(-1);
     }
 
@@ -450,6 +448,51 @@
       transform: translateY(-1px);
     }
 
+    /* In-Card Countdown placed directly under date */
+    .countdown-in-card {
+      margin-top: 14px;
+      padding: 14px 10px;
+      background: #faf7ef;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .countdown-title {
+      font-size: 0.95rem;
+      color: var(--olive-deep);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .timer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      direction: ltr;
+    }
+
+    .time-slot {
+      background: #ffffff;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 10px;
+      padding: 8px 4px;
+    }
+
+    .time-number {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--olive-deep);
+      display: block;
+      line-height: 1.2;
+    }
+
+    .time-label {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
     /* Details Card */
     .details-card {
       width: 100%;
@@ -466,7 +509,7 @@
       display: flex;
       align-items: flex-start;
       gap: 16px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
     .detail-icon {
@@ -496,68 +539,14 @@
       line-height: 1.6;
     }
 
-    .hall-notice-badge {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 5px 14px;
-      background: rgba(27, 56, 45, 0.08);
-      border: 1px solid rgba(27, 56, 45, 0.2);
-      border-radius: 30px;
-      font-size: 0.88rem;
-      color: var(--olive-deep);
-      font-weight: 700;
-    }
-
-    .privacy-notice-inline {
-      margin-top: 10px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: rgba(247, 243, 233, 0.95);
-      border: 1px dashed var(--border-gold);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .privacy-notice-icon {
-      font-size: 1.1rem;
-      color: #9e2a2b;
-    }
-
-    .privacy-notice-text {
-      font-size: 0.86rem;
-      color: var(--olive-deep);
-      line-height: 1.5;
-    }
-
-    .dinner-banner {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(27, 56, 45, 0.04));
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      border-radius: 14px;
-      padding: 12px 14px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .dinner-banner i {
-      font-size: 1.2rem;
-      color: var(--gold-dark);
-    }
-
-    .dinner-banner span {
-      font-size: 0.95rem;
-      color: var(--olive-deep);
-      font-weight: 700;
-    }
-
+    /* Map Action Button directly after Location */
     .btn-map-action {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       width: 100%;
+      margin: 14px 0 18px 0;
       padding: 13px 20px;
       border-radius: 12px;
       background: linear-gradient(135deg, var(--olive-dark), var(--olive-deep));
@@ -575,51 +564,62 @@
       box-shadow: 0 6px 20px rgba(27, 56, 45, 0.4);
     }
 
-    /* Countdown */
-    .countdown-box {
-      width: 100%;
-      margin-top: 24px;
-      padding: 22px 14px;
-      background: #ffffff;
-      border: 1.5px solid var(--border-gold);
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(27, 56, 45, 0.07);
-    }
-
-    .countdown-title {
-      font-size: 1.05rem;
+    .hall-notice-badge {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 14px;
+      background: rgba(27, 56, 45, 0.08);
+      border: 1px solid rgba(27, 56, 45, 0.2);
+      border-radius: 30px;
+      font-size: 0.88rem;
       color: var(--olive-deep);
-      margin-bottom: 16px;
       font-weight: 700;
     }
 
-    .timer-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      direction: ltr;
-    }
-
-    .time-slot {
-      background: var(--card-ivory);
-      border: 1px solid rgba(212, 175, 55, 0.35);
+    /* Strict Photography Prohibition Notice */
+    .privacy-notice-strict {
+      margin-bottom: 18px;
+      padding: 12px 14px;
       border-radius: 12px;
-      padding: 10px 4px;
+      background: rgba(158, 42, 43, 0.08);
+      border: 1.5px solid rgba(158, 42, 43, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .time-number {
-      font-size: 1.55rem;
+    .privacy-notice-icon {
+      font-size: 1.3rem;
+      color: #9e2a2b;
+    }
+
+    .privacy-notice-text {
+      font-size: 0.92rem;
+      color: #831819;
       font-weight: 800;
-      color: var(--olive-deep);
-      display: block;
-      line-height: 1.2;
+      line-height: 1.5;
     }
 
-    .time-label {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-weight: 600;
+    /* Dinner Banner */
+    .dinner-banner {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(27, 56, 45, 0.04));
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .dinner-banner i {
+      font-size: 1.2rem;
+      color: var(--gold-dark);
+    }
+
+    .dinner-banner span {
+      font-size: 0.95rem;
+      color: var(--olive-deep);
+      font-weight: 700;
     }
 
     footer {
@@ -633,6 +633,7 @@
     @media (max-width: 480px) {
       .person-name-unified { font-size: 1.55rem; }
       .host-col .name { font-size: 1.02rem; }
+      .floral-bouquet { width: 90px; height: 90px; }
     }
   </style>
 </head>
@@ -676,25 +677,49 @@
     <!-- Main Card -->
     <main class="card-royal">
       
-      <!-- Classic Corner Floral Accents -->
-      <svg class="floral-corner floral-top-left" viewBox="0 0 100 100">
-        <path d="M 10,10 Q 55,20 80,75 Q 40,40 10,10 Z" fill="rgba(42, 82, 66, 0.15)"/>
-        <circle cx="22" cy="22" r="5" fill="#d4af37"/>
-        <circle cx="36" cy="18" r="4" fill="rgba(212, 175, 55, 0.7)"/>
-        <circle cx="18" cy="36" r="4" fill="rgba(212, 175, 55, 0.7)"/>
-        <path d="M 22,22 Q 40,60 70,70" stroke="#d4af37" stroke-width="1.2" fill="none"/>
-        <ellipse cx="45" cy="42" rx="4" ry="7" transform="rotate(35 45 42)" fill="rgba(42, 82, 66, 0.25)"/>
-        <ellipse cx="58" cy="55" rx="3" ry="6" transform="rotate(45 58 55)" fill="rgba(42, 82, 66, 0.25)"/>
+      <!-- Prominent Classical Floral Bouquets in Corners -->
+      <svg class="floral-bouquet floral-bouquet-left" viewBox="0 0 140 140">
+        <!-- Botanical Leaves -->
+        <path d="M 0,0 Q 60,10 95,75 Q 40,40 0,0 Z" fill="rgba(42, 82, 66, 0.22)"/>
+        <path d="M 0,0 Q 20,60 75,95 Q 40,40 0,0 Z" fill="rgba(42, 82, 66, 0.22)"/>
+        <ellipse cx="65" cy="45" rx="6" ry="12" transform="rotate(40 65 45)" fill="rgba(42, 82, 66, 0.35)"/>
+        <ellipse cx="45" cy="65" rx="12" ry="6" transform="rotate(50 45 65)" fill="rgba(42, 82, 66, 0.35)"/>
+        <ellipse cx="85" cy="60" rx="5" ry="10" transform="rotate(30 85 60)" fill="rgba(42, 82, 66, 0.3)"/>
+        <!-- Golden Vines -->
+        <path d="M 0,0 Q 50,50 100,100" stroke="#d4af37" stroke-width="1.6" fill="none"/>
+        <path d="M 15,35 Q 45,70 85,90" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+        <!-- Floral Blossoms with Golden Centers -->
+        <circle cx="36" cy="36" r="9" fill="#fdfbf7" stroke="#d4af37" stroke-width="1.5"/>
+        <circle cx="36" cy="36" r="4.5" fill="#d4af37"/>
+        <circle cx="62" cy="24" r="7.5" fill="#fdfbf7" stroke="#d4af37" stroke-width="1.2"/>
+        <circle cx="62" cy="24" r="3.5" fill="#d4af37"/>
+        <circle cx="24" cy="62" r="7.5" fill="#fdfbf7" stroke="#d4af37" stroke-width="1.2"/>
+        <circle cx="24" cy="62" r="3.5" fill="#d4af37"/>
+        <!-- Small Buds -->
+        <circle cx="82" cy="36" r="4" fill="#d4af37"/>
+        <circle cx="36" cy="82" r="4" fill="#d4af37"/>
       </svg>
 
-      <svg class="floral-corner floral-top-right" viewBox="0 0 100 100">
-        <path d="M 10,10 Q 55,20 80,75 Q 40,40 10,10 Z" fill="rgba(42, 82, 66, 0.15)"/>
-        <circle cx="22" cy="22" r="5" fill="#d4af37"/>
-        <circle cx="36" cy="18" r="4" fill="rgba(212, 175, 55, 0.7)"/>
-        <circle cx="18" cy="36" r="4" fill="rgba(212, 175, 55, 0.7)"/>
-        <path d="M 22,22 Q 40,60 70,70" stroke="#d4af37" stroke-width="1.2" fill="none"/>
-        <ellipse cx="45" cy="42" rx="4" ry="7" transform="rotate(35 45 42)" fill="rgba(42, 82, 66, 0.25)"/>
-        <ellipse cx="58" cy="55" rx="3" ry="6" transform="rotate(45 58 55)" fill="rgba(42, 82, 66, 0.25)"/>
+      <svg class="floral-bouquet floral-bouquet-right" viewBox="0 0 140 140">
+        <!-- Botanical Leaves -->
+        <path d="M 0,0 Q 60,10 95,75 Q 40,40 0,0 Z" fill="rgba(42, 82, 66, 0.22)"/>
+        <path d="M 0,0 Q 20,60 75,95 Q 40,40 0,0 Z" fill="rgba(42, 82, 66, 0.22)"/>
+        <ellipse cx="65" cy="45" rx="6" ry="12" transform="rotate(40 65 45)" fill="rgba(42, 82, 66, 0.35)"/>
+        <ellipse cx="45" cy="65" rx="12" ry="6" transform="rotate(50 45 65)" fill="rgba(42, 82, 66, 0.35)"/>
+        <ellipse cx="85" cy="60" rx="5" ry="10" transform="rotate(30 85 60)" fill="rgba(42, 82, 66, 0.3)"/>
+        <!-- Golden Vines -->
+        <path d="M 0,0 Q 50,50 100,100" stroke="#d4af37" stroke-width="1.6" fill="none"/>
+        <path d="M 15,35 Q 45,70 85,90" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+        <!-- Floral Blossoms with Golden Centers -->
+        <circle cx="36" cy="36" r="9" fill="#fdfbf7" stroke="#d4af37" stroke-width="1.5"/>
+        <circle cx="36" cy="36" r="4.5" fill="#d4af37"/>
+        <circle cx="62" cy="24" r="7.5" fill="#fdfbf7" stroke="#d4af37" stroke-width="1.2"/>
+        <circle cx="62" cy="24" r="3.5" fill="#d4af37"/>
+        <circle cx="24" cy="62" r="7.5" fill="#fdfbf7" stroke="#d4af37" stroke-width="1.2"/>
+        <circle cx="24" cy="62" r="3.5" fill="#d4af37"/>
+        <!-- Small Buds -->
+        <circle cx="82" cy="36" r="4" fill="#d4af37"/>
+        <circle cx="36" cy="82" r="4" fill="#d4af37"/>
       </svg>
 
       <div class="bismillah">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</div>
@@ -740,7 +765,7 @@
         «بَارَكَ اللَّهُ لَهُمَا وَبَارَكَ عَلَيْهِمَا وَجَمَعَ بَيْنَهُمَا فِي خَيْرٍ»
       </div>
 
-      <!-- In-Card Schedule & Calendar -->
+      <!-- In-Card Schedule, Calendar & Countdown Directly Following -->
       <div class="card-date-schedule">
         <div class="card-date-text">يوم السبت 14 من الشهر الحالي</div>
         <div class="card-time-text">الساعة 4:00 عصراً</div>
@@ -749,6 +774,17 @@
           <i class="fa-regular fa-calendar-plus" style="color: var(--gold-dark);"></i>
           <span>حفظ الموعد في تقويم الهاتف</span>
         </a>
+
+        <!-- Countdown directly under date/schedule -->
+        <div class="countdown-in-card">
+          <div class="countdown-title">الوقت المتبقي لليلة الفرح المباركة</div>
+          <div class="timer-grid">
+            <div class="time-slot"><span class="time-number" id="t-days">00</span><span class="time-label">أيام</span></div>
+            <div class="time-slot"><span class="time-number" id="t-hours">00</span><span class="time-label">ساعات</span></div>
+            <div class="time-slot"><span class="time-number" id="t-mins">00</span><span class="time-label">دقائق</span></div>
+            <div class="time-slot"><span class="time-number" id="t-secs">00</span><span class="time-label">ثواني</span></div>
+          </div>
+        </div>
       </div>
 
       <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 16px; line-height: 1.6;">
@@ -764,17 +800,27 @@
           <h4>المكان والصالة</h4>
           <p><strong>صالة غرين لاند (شام لاند سابقاً)</strong></p>
           <p>أوتوستراد إدلب – معرتمصرين، خلف مبنى اكتفاء</p>
-          
-          <div class="hall-notice-badge">
-            <i class="fa-solid fa-users"></i> الصالة للنساء والتراس للرجال
-          </div>
+        </div>
+      </div>
 
-          <div class="privacy-notice-inline">
-            <i class="fa-solid fa-camera-slash privacy-notice-icon"></i>
-            <div class="privacy-notice-text">
-              حفظاً للخصوصية وتكريماً لأهل الحفل، نرجو التكرم بالامتناع عن التصوير داخل صالة النساء، شاكرين لكم طيب تعاونكم.
-            </div>
-          </div>
+      <!-- Map Action Button directly after Location -->
+      <a href="https://maps.google.com/?q=35.998585,36.677376" target="_blank" class="btn-map-action">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span>فتح موقع الصالة على الخريطة (Google Maps)</span>
+      </a>
+
+      <!-- Hall Badge -->
+      <div>
+        <div class="hall-notice-badge">
+          <i class="fa-solid fa-users"></i> الصالة للنساء والتراس للرجال
+        </div>
+      </div>
+
+      <!-- Strict Photography Prohibition Notice -->
+      <div class="privacy-notice-strict">
+        <i class="fa-solid fa-ban privacy-notice-icon"></i>
+        <div class="privacy-notice-text">
+          يُمنع منعاً باتاً التصوير داخل صالة النساء حفاظاً على الخصوصية.
         </div>
       </div>
 
@@ -782,23 +828,6 @@
       <div class="dinner-banner">
         <i class="fa-solid fa-utensils"></i>
         <span>ويُسعدنا تشريفكم لتناول طعام العشاء احتفاءً بهذه المناسبة المباركة</span>
-      </div>
-
-      <!-- Map Action -->
-      <a href="https://maps.google.com/?q=35.998585,36.677376" target="_blank" class="btn-map-action">
-        <i class="fa-solid fa-map-location-dot"></i>
-        <span>فتح موقع الصالة على الخريطة (Google Maps)</span>
-      </a>
-    </section>
-
-    <!-- Countdown Timer -->
-    <section class="countdown-box">
-      <div class="countdown-title">الوقت المتبقي لليلة الفرح المباركة</div>
-      <div class="timer-grid">
-        <div class="time-slot"><span class="time-number" id="t-days">00</span><span class="time-label">أيام</span></div>
-        <div class="time-slot"><span class="time-number" id="t-hours">00</span><span class="time-label">ساعات</span></div>
-        <div class="time-slot"><span class="time-number" id="t-mins">00</span><span class="time-label">دقائق</span></div>
-        <div class="time-slot"><span class="time-number" id="t-secs">00</span><span class="time-label">ثواني</span></div>
       </div>
     </section>
 
