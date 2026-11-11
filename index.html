@@ -54,6 +54,7 @@
       position: relative;
     }
 
+    /* Ambient Flying Butterflies Canvas strictly in outer borders */
     .ambient-canvas {
       position: fixed;
       top: 0;
@@ -61,9 +62,10 @@
       width: 100vw;
       height: 100vh;
       pointer-events: none;
-      z-index: 1;
+      z-index: 10;
     }
 
+    /* Envelope Screen */
     #envelope-screen {
       position: fixed;
       inset: 0;
@@ -208,6 +210,7 @@
       50% { opacity: 1; transform: scale(1.04); }
     }
 
+    /* Main Container */
     .main-wrapper {
       position: relative;
       z-index: 5;
@@ -219,12 +222,13 @@
       align-items: center;
     }
 
+    /* Royal Invitation Card */
     .card-royal {
       width: 100%;
       background: var(--card-ivory);
       border: 1px solid rgba(212, 175, 55, 0.35);
       border-radius: 28px;
-      padding: 75px 20px 48px 20px;
+      padding: 68px 20px 48px 20px;
       box-shadow: 0 15px 45px rgba(27, 56, 45, 0.08);
       position: relative;
       text-align: center;
@@ -238,8 +242,10 @@
       border: 1px dashed rgba(212, 175, 55, 0.35);
       border-radius: 22px;
       pointer-events: none;
+      z-index: 2;
     }
 
+    /* Realistic Watercolor Botanical Floral Bouquets */
     .botanical-branch {
       position: absolute;
       pointer-events: none;
@@ -248,42 +254,18 @@
     }
 
     .branch-top-right {
-      top: -15px;
-      right: -15px;
-      width: 200px;
-      height: 200px;
+      top: -10px;
+      right: -10px;
+      width: 210px;
+      height: 210px;
     }
 
     .branch-bottom-left {
       bottom: -15px;
       left: -15px;
-      width: 190px;
-      height: 190px;
+      width: 195px;
+      height: 195px;
       transform: rotate(180deg);
-    }
-
-    .static-butterfly {
-      position: absolute;
-      pointer-events: none;
-      z-index: 2;
-      opacity: 0.9;
-      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.06));
-    }
-
-    .bf-left {
-      top: 140px;
-      left: 14px;
-      width: 38px;
-      height: 38px;
-      transform: rotate(-18deg);
-    }
-
-    .bf-right {
-      bottom: 270px;
-      right: 14px;
-      width: 34px;
-      height: 34px;
-      transform: rotate(22deg);
     }
 
     .bismillah {
@@ -659,13 +641,14 @@
     @media (max-width: 480px) {
       .person-name-unified { font-size: 1.6rem; }
       .host-col .name { font-size: 1.05rem; }
-      .branch-top-right { width: 160px; height: 160px; }
-      .branch-bottom-left { width: 150px; height: 150px; }
+      .branch-top-right { width: 175px; height: 175px; }
+      .branch-bottom-left { width: 165px; height: 165px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Ambient Flying Canvas for Realistic Butterflies strictly flying along borders -->
   <canvas id="ambientCanvas" class="ambient-canvas"></canvas>
 
   <div id="envelope-screen">
@@ -699,7 +682,7 @@
   <div class="main-wrapper">
     <main class="card-royal">
       
-      <!-- Top Right Bouquet -->
+      <!-- Top Right Bouquet (Matches User Marking) -->
       <svg class="botanical-branch branch-top-right" viewBox="0 0 220 220">
         <path d="M 220,0 Q 150,45 110,120 T 25,185" fill="none" stroke="#254233" stroke-width="2.2" stroke-linecap="round"/>
         <path d="M 155,55 Q 95,70 65,120" fill="none" stroke="#254233" stroke-width="1.6" stroke-linecap="round"/>
@@ -772,25 +755,6 @@
           <circle cx="0" cy="0" r="5" fill="#132a21"/>
           <circle cx="0" cy="0" r="2.5" fill="#d4af37"/>
         </g>
-      </svg>
-
-      <!-- Side Butterflies -->
-      <svg class="static-butterfly bf-left" viewBox="0 0 50 50">
-        <path d="M 25,25 Q 5,10 8,2 Q 20,4 25,22 Z" fill="#edf2f7" stroke="#334e68" stroke-width="0.8"/>
-        <path d="M 25,25 Q 8,28 10,40 Q 18,38 25,26 Z" fill="#d9e2ec" stroke="#334e68" stroke-width="0.8"/>
-        <path d="M 25,25 Q 45,10 42,2 Q 30,4 25,22 Z" fill="#edf2f7" stroke="#334e68" stroke-width="0.8"/>
-        <path d="M 25,25 Q 42,28 40,40 Q 32,38 25,26 Z" fill="#d9e2ec" stroke="#334e68" stroke-width="0.8"/>
-        <ellipse cx="25" cy="25" rx="1.5" ry="8" fill="#1b382b"/>
-        <path d="M 24,18 Q 20,12 18,10 M 26,18 Q 30,12 32,10" stroke="#1b382b" stroke-width="0.8" fill="none"/>
-      </svg>
-
-      <svg class="static-butterfly bf-right" viewBox="0 0 50 50">
-        <path d="M 25,25 Q 5,10 8,2 Q 20,4 25,22 Z" fill="#edf2f7" stroke="#334e68" stroke-width="0.8"/>
-        <path d="M 25,25 Q 8,28 10,40 Q 18,38 25,26 Z" fill="#d9e2ec" stroke="#334e68" stroke-width="0.8"/>
-        <path d="M 25,25 Q 45,10 42,2 Q 30,4 25,22 Z" fill="#edf2f7" stroke="#334e68" stroke-width="0.8"/>
-        <path d="M 25,25 Q 42,28 40,40 Q 32,38 25,26 Z" fill="#d9e2ec" stroke="#334e68" stroke-width="0.8"/>
-        <ellipse cx="25" cy="25" rx="1.5" ry="8" fill="#1b382b"/>
-        <path d="M 24,18 Q 20,12 18,10 M 26,18 Q 30,12 32,10" stroke="#1b382b" stroke-width="0.8" fill="none"/>
       </svg>
 
       <div class="bismillah">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</div>
@@ -953,7 +917,7 @@
     }
     setupCountdown();
 
-    // 3 Gentle Border Butterflies
+    // Realistic Butterflies Flying strictly around red-marked border trajectory
     const canvas = document.getElementById('ambientCanvas');
     const ctx = canvas.getContext('2d');
     let width = window.innerWidth;
@@ -964,33 +928,36 @@
       height = canvas.height = window.innerHeight;
     }
 
-    class BorderButterfly {
-      constructor(side) {
-        this.side = side;
+    class RealisticButterfly {
+      constructor(side, wingType) {
+        this.side = side; // 'left' or 'right'
+        this.wingType = wingType; // 0: Monarch/Gold, 1: Soft Blue/Lavender, 2: Olive-Gold
         this.reset(true);
       }
 
       reset(init = false) {
+        // Keeps strictly in the side corridors marked in red (within 12-16% of edges)
         if (this.side === 'left') {
-          this.x = Math.random() * (width * 0.18);
+          this.x = Math.random() * (width * 0.14) + 10;
         } else {
-          this.x = width - (Math.random() * (width * 0.18));
+          this.x = width - (Math.random() * (width * 0.14) + 10);
         }
-        this.y = init ? Math.random() * height : height + 30;
-        this.size = Math.random() * 4 + 11;
-        this.speedY = -(Math.random() * 0.45 + 0.3);
+        this.y = init ? Math.random() * height : height + 35;
+        this.size = Math.random() * 4 + 13;
+        this.speedY = -(Math.random() * 0.45 + 0.35);
         this.speedX = (Math.random() - 0.5) * 0.35;
-        this.opacity = Math.random() * 0.25 + 0.65;
-        this.angle = (Math.random() - 0.5) * 0.4;
+        this.opacity = Math.random() * 0.15 + 0.8;
+        this.angle = (Math.random() - 0.5) * 0.35;
         this.wingFlap = Math.random() * Math.PI;
       }
 
       update() {
         this.y += this.speedY;
-        this.x += this.speedX + Math.sin(this.y * 0.015) * 0.3;
-        this.wingFlap += 0.13;
+        this.x += this.speedX + Math.sin(this.y * 0.015) * 0.35;
+        this.wingFlap += 0.14;
 
-        if (this.y < -40 || (this.side === 'left' && this.x > width * 0.22) || (this.side === 'right' && this.x < width * 0.78)) {
+        // Reset if off top or wanders inwards beyond side boundaries
+        if (this.y < -45 || (this.side === 'left' && this.x > width * 0.18) || (this.side === 'right' && this.x < width * 0.82)) {
           this.reset(false);
         }
       }
@@ -1002,31 +969,104 @@
         ctx.globalAlpha = this.opacity;
 
         const flap = Math.abs(Math.sin(this.wingFlap));
-        ctx.fillStyle = 'rgba(237, 242, 247, 0.9)';
-        ctx.strokeStyle = 'rgba(51, 78, 104, 0.6)';
+
+        // Color palettes from user's sample
+        let primaryColor, secondaryColor, edgeColor;
+        if (this.wingType === 0) {
+          // Monarch Gold
+          primaryColor = '#ffd066';
+          secondaryColor = '#f5a623';
+          edgeColor = '#2d1b00';
+        } else if (this.wingType === 1) {
+          // Soft Blue/Lavender
+          primaryColor = '#d9e7f5';
+          secondaryColor = '#b8d2eb';
+          edgeColor = '#243b53';
+        } else {
+          // Olive-Golden Velvet
+          primaryColor = '#e2dfb8';
+          secondaryColor = '#c7b36d';
+          edgeColor = '#1a3324';
+        }
+
+        // Forewings (Upper)
+        ctx.fillStyle = primaryColor;
+        ctx.strokeStyle = edgeColor;
+        ctx.lineWidth = 1;
+
+        // Right Forewing
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(10 * flap, -18, 22 * flap, -15, 20 * flap, -2);
+        ctx.bezierCurveTo(18 * flap, 6, 8 * flap, 8, 0, 0);
+        ctx.fill();
+        ctx.stroke();
+
+        // Left Forewing
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(-10 * flap, -18, -22 * flap, -15, -20 * flap, -2);
+        ctx.bezierCurveTo(-18 * flap, 6, -8 * flap, 8, 0, 0);
+        ctx.fill();
+        ctx.stroke();
+
+        // Hindwings (Lower)
+        ctx.fillStyle = secondaryColor;
+        // Right Hindwing
+        ctx.beginPath();
+        ctx.moveTo(0, 2);
+        ctx.bezierCurveTo(8 * flap, 5, 16 * flap, 12, 12 * flap, 20);
+        ctx.bezierCurveTo(6 * flap, 22, 2 * flap, 14, 0, 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Left Hindwing
+        ctx.beginPath();
+        ctx.moveTo(0, 2);
+        ctx.bezierCurveTo(-8 * flap, 5, -16 * flap, 12, -12 * flap, 20);
+        ctx.bezierCurveTo(-6 * flap, 22, -2 * flap, 14, 0, 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Delicate Wing Veins
+        ctx.strokeStyle = edgeColor;
+        ctx.lineWidth = 0.6;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(14 * flap, -8);
+        ctx.moveTo(0, 0);
+        ctx.lineTo(-14 * flap, -8);
+        ctx.moveTo(0, 2);
+        ctx.lineTo(8 * flap, 14);
+        ctx.moveTo(0, 2);
+        ctx.lineTo(-8 * flap, 14);
+        ctx.stroke();
+
+        // Butterfly Slender Body & Head
+        ctx.fillStyle = edgeColor;
+        ctx.beginPath();
+        ctx.ellipse(0, 3, 1.2, 8, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Antennae
         ctx.lineWidth = 0.7;
-
         ctx.beginPath();
-        ctx.ellipse(this.size * 0.65 * flap, -this.size * 0.3, this.size * 0.65 * flap, this.size * 0.38, 0.3, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.moveTo(-0.5, -4);
+        ctx.quadraticCurveTo(-4, -10, -6, -11);
+        ctx.moveTo(0.5, -4);
+        ctx.quadraticCurveTo(4, -10, 6, -11);
         ctx.stroke();
-
-        ctx.beginPath();
-        ctx.ellipse(-this.size * 0.65 * flap, -this.size * 0.3, this.size * 0.65 * flap, this.size * 0.38, -0.3, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.fillStyle = '#1b382d';
-        ctx.fillRect(-0.9, -this.size * 0.4, 1.8, this.size * 0.8);
 
         ctx.restore();
       }
     }
 
+    // 4 Realistic Butterflies dedicated strictly to side margins
     const butterflies = [
-      new BorderButterfly('left'),
-      new BorderButterfly('right'),
-      new BorderButterfly('left')
+      new RealisticButterfly('left', 0),
+      new RealisticButterfly('right', 1),
+      new RealisticButterfly('left', 2),
+      new RealisticButterfly('right', 0)
     ];
 
     function animate() {
