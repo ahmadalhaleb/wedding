@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>دعوة زفاف: أحمد و كريمته</title>
+  <title>دعوة زفاف: المهندس أحمد & الدكتورة كريمته</title>
   
-  <meta property="og:title" content="دعوة زفاف أحمد و كريمته">
+  <meta property="og:title" content="دعوة زفاف المهندس أحمد & الدكتورة كريمته">
   <meta property="og:description" content="يتشرف السيد إسماعيل الحليب والسيد عبدالله المراد بدعوتكم لحضور حفل الزفاف وتناول طعام العشاء">
   <meta name="theme-color" content="#132a21">
 
@@ -56,12 +56,15 @@
 
     .ambient-canvas {
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       pointer-events: none;
-      z-index: 99;
+      z-index: 0;
     }
 
-    /* Envelope Presentation */
+    /* Envelope Screen */
     #envelope-screen {
       position: fixed;
       inset: 0;
@@ -147,7 +150,7 @@
       z-index: 2;
     }
 
-    /* Clean Classic Wax Seal - No Circular Wreath Lines */
+    /* Clean Classic Wax Seal */
     .wax-seal {
       position: relative;
       z-index: 5;
@@ -219,17 +222,18 @@
       align-items: center;
     }
 
-    /* Main Royal Invitation Card */
+    /* Royal Invitation Card */
     .card-royal {
       width: 100%;
       background: var(--card-ivory);
       border: 2px solid var(--border-gold);
       border-radius: 26px;
-      padding: 44px 22px;
+      padding: 48px 18px 42px 18px;
       box-shadow: 0 20px 45px rgba(27, 56, 45, 0.1), 0 4px 15px rgba(0,0,0,0.03);
       position: relative;
       text-align: center;
       backdrop-filter: blur(8px);
+      overflow: hidden;
     }
 
     .card-royal::before {
@@ -241,11 +245,34 @@
       pointer-events: none;
     }
 
+    /* Classic Floral Corner Bouquets inside Card */
+    .floral-corner {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      pointer-events: none;
+      opacity: 0.85;
+      z-index: 2;
+    }
+
+    .floral-top-left {
+      top: 10px;
+      left: 10px;
+    }
+
+    .floral-top-right {
+      top: 10px;
+      right: 10px;
+      transform: scaleX(-1);
+    }
+
     .bismillah {
       font-family: 'Amiri', serif;
       font-size: 1.65rem;
       color: var(--olive-deep);
       margin-bottom: 12px;
+      position: relative;
+      z-index: 3;
     }
 
     .quran-ayah {
@@ -255,6 +282,8 @@
       color: var(--olive-deep);
       max-width: 90%;
       margin: 0 auto 20px auto;
+      position: relative;
+      z-index: 3;
     }
 
     .gold-divider {
@@ -285,16 +314,16 @@
       margin-bottom: 18px;
     }
 
-    /* Symmetrical Hosts Grid */
+    /* Hosts Grid - Guaranteed One Line on All Screens */
     .symmetric-hosts-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 10px;
       margin: 10px 0 24px 0;
     }
 
     .host-col {
-      padding: 14px 8px;
+      padding: 12px 6px;
       background: #ffffff;
       border-radius: 14px;
       border: 1px solid rgba(212, 175, 55, 0.3);
@@ -302,22 +331,25 @@
     }
 
     .host-col .prefix {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--gold-dark);
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .host-col .name {
-      font-size: 1.25rem;
+      font-size: 1.18rem;
       font-weight: 800;
       color: var(--olive-deep);
       line-height: 1.4;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .host-col .kunya {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: var(--gold-dark);
     }
@@ -331,14 +363,14 @@
       font-weight: 600;
     }
 
-    /* Symmetrical Couple Section: Same Exact Color & Arabic 'و' */
+    /* Symmetrical Couple Section: المهندس أحمد و الدكتورة كريمته */
     .symmetric-couple-grid {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: 10px;
       margin: 25px 0;
-      padding: 22px 14px;
+      padding: 22px 10px;
       background: linear-gradient(135deg, #ffffff, #f7f4ea);
       border-radius: 18px;
       border: 1.5px solid var(--border-gold);
@@ -347,20 +379,21 @@
 
     .person-name-unified {
       font-family: 'Amiri', serif;
-      font-size: 2.25rem;
+      font-size: 1.95rem;
       font-weight: 800;
       line-height: 1.3;
-      color: #1a382b !important; /* Guaranteed Same Rich Dark Tone for Both */
+      color: #1a382b !important;
       text-shadow: 0 1px 2px rgba(212, 175, 55, 0.2);
+      white-space: nowrap;
     }
 
     .couple-waw {
       font-family: 'Amiri', serif;
-      font-size: 2.1rem;
+      font-size: 1.95rem;
       color: var(--gold-dark);
       font-weight: 700;
       line-height: 1;
-      padding: 0 6px;
+      padding: 0 4px;
     }
 
     .hadith-quote {
@@ -475,7 +508,28 @@
       font-weight: 700;
     }
 
-    /* Dinner Banner */
+    .privacy-notice-inline {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(247, 243, 233, 0.95);
+      border: 1px dashed var(--border-gold);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .privacy-notice-icon {
+      font-size: 1.1rem;
+      color: #9e2a2b;
+    }
+
+    .privacy-notice-text {
+      font-size: 0.86rem;
+      color: var(--olive-deep);
+      line-height: 1.5;
+    }
+
     .dinner-banner {
       background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(27, 56, 45, 0.04));
       border: 1px solid rgba(212, 175, 55, 0.4);
@@ -496,29 +550,6 @@
       font-size: 0.95rem;
       color: var(--olive-deep);
       font-weight: 700;
-    }
-
-    /* Privacy Notice */
-    .privacy-notice-box {
-      margin-bottom: 18px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: rgba(247, 243, 233, 0.9);
-      border: 1px dashed var(--border-gold);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .privacy-notice-icon {
-      font-size: 1.2rem;
-      color: #9e2a2b;
-    }
-
-    .privacy-notice-text {
-      font-size: 0.88rem;
-      color: var(--olive-deep);
-      line-height: 1.5;
     }
 
     .btn-map-action {
@@ -600,14 +631,14 @@
     }
 
     @media (max-width: 480px) {
-      .person-name-unified { font-size: 1.85rem; }
-      .host-col .name { font-size: 1.15rem; }
+      .person-name-unified { font-size: 1.55rem; }
+      .host-col .name { font-size: 1.02rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Ambient Canvas -->
+  <!-- Ambient Subtle Background Canvas -->
   <canvas id="ambientCanvas" class="ambient-canvas"></canvas>
 
   <!-- Envelope Screen -->
@@ -622,7 +653,7 @@
         <div class="env-silk-ribbon"></div>
         <div class="env-flap"></div>
         
-        <!-- Clean Classic Wax Seal -->
+        <!-- Clean Wax Seal -->
         <div class="wax-seal">
           <i class="fa-solid fa-crown"></i>
           <div class="monogram-text">
@@ -644,6 +675,28 @@
   <div class="main-wrapper">
     <!-- Main Card -->
     <main class="card-royal">
+      
+      <!-- Classic Corner Floral Accents -->
+      <svg class="floral-corner floral-top-left" viewBox="0 0 100 100">
+        <path d="M 10,10 Q 55,20 80,75 Q 40,40 10,10 Z" fill="rgba(42, 82, 66, 0.15)"/>
+        <circle cx="22" cy="22" r="5" fill="#d4af37"/>
+        <circle cx="36" cy="18" r="4" fill="rgba(212, 175, 55, 0.7)"/>
+        <circle cx="18" cy="36" r="4" fill="rgba(212, 175, 55, 0.7)"/>
+        <path d="M 22,22 Q 40,60 70,70" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+        <ellipse cx="45" cy="42" rx="4" ry="7" transform="rotate(35 45 42)" fill="rgba(42, 82, 66, 0.25)"/>
+        <ellipse cx="58" cy="55" rx="3" ry="6" transform="rotate(45 58 55)" fill="rgba(42, 82, 66, 0.25)"/>
+      </svg>
+
+      <svg class="floral-corner floral-top-right" viewBox="0 0 100 100">
+        <path d="M 10,10 Q 55,20 80,75 Q 40,40 10,10 Z" fill="rgba(42, 82, 66, 0.15)"/>
+        <circle cx="22" cy="22" r="5" fill="#d4af37"/>
+        <circle cx="36" cy="18" r="4" fill="rgba(212, 175, 55, 0.7)"/>
+        <circle cx="18" cy="36" r="4" fill="rgba(212, 175, 55, 0.7)"/>
+        <path d="M 22,22 Q 40,60 70,70" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+        <ellipse cx="45" cy="42" rx="4" ry="7" transform="rotate(35 45 42)" fill="rgba(42, 82, 66, 0.25)"/>
+        <ellipse cx="58" cy="55" rx="3" ry="6" transform="rotate(45 58 55)" fill="rgba(42, 82, 66, 0.25)"/>
+      </svg>
+
       <div class="bismillah">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</div>
       <div class="quran-ayah">
         ﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً﴾
@@ -657,7 +710,7 @@
 
       <div class="single-yatasharaf">يَتَشَرَّف</div>
 
-      <!-- Symmetrical Hosts -->
+      <!-- Symmetrical Hosts: Guaranteed One Line -->
       <div class="symmetric-hosts-grid">
         <div class="host-col">
           <div class="prefix">السيد</div>
@@ -676,23 +729,23 @@
         بدعوتكم لمشاركتهم أسعد اللحظات في حفل زفاف ولديهما
       </p>
 
-      <!-- Symmetrical Couple: Ahmad & Karimtuh with Unified Color & Arabic 'و' -->
+      <!-- Symmetrical Couple: المهندس أحمد و الدكتورة كريمته -->
       <div class="symmetric-couple-grid">
-        <div class="person-name-unified">أحمد</div>
+        <div class="person-name-unified">المهندس أحمد</div>
         <div class="couple-waw">و</div>
-        <div class="person-name-unified">كريمته</div>
+        <div class="person-name-unified">الدكتورة كريمته</div>
       </div>
 
       <div class="hadith-quote">
         «بَارَكَ اللَّهُ لَهُمَا وَبَارَكَ عَلَيْهِمَا وَجَمَعَ بَيْنَهُمَا فِي خَيْرٍ»
       </div>
 
-      <!-- In-Card Schedule & Google Calendar Integration -->
+      <!-- In-Card Schedule & Calendar -->
       <div class="card-date-schedule">
         <div class="card-date-text">يوم السبت 14 من الشهر الحالي</div>
         <div class="card-time-text">الساعة 4:00 عصراً</div>
         
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%D8%B2%D9%81%D8%A7%D9%81+%D8%A3%D8%AD%D9%85%D8%AF+%D9%88%D9%83%D8%B1%D9%8A%D9%85%D8%AA%D9%87&dates=20261114T130000Z/20261114T180000Z&details=%D8%AD%D9%81%D9%84+%D8%B2%D9%81%D8%A7%D9%81+%D8%A3%D8%AD%D9%85%D8%AF+%D9%88%D9%83%D8%B1%D9%8A%D9%85%D8%AA%D9%87+-+%D8%A5%D8%AF%D9%84%D8%A8+%D8%B5%D8%A7%D9%84%D8%A9+%D8%BA%D8%B1%D9%8A%D9%86+%D9%84%D8%A7%D9%86%D8%AF&location=%D8%B5%D8%A7%D9%84%D8%A9+%D8%BA%D8%B1%D9%8A%D9%86+%D9%84%D8%A7%D9%86%D8%AF%D8%8C+%D8%A5%D8%AF%D9%84%D8%A8" target="_blank" class="btn-incard-calendar">
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%D8%B2%D9%81%D8%A7%D9%81+%D8%A7%D9%84%D9%85%D9%87%D9%86%D8%AF%D8%B3+%D8%A3%D8%AD%D9%85%D8%AF+%D9%88%D8%A7%D9%84%D8%AF%D9%83%D8%AA%D9%88%D8%B1%D8%A9+%D9%83%D8%B1%D9%8A%D9%85%D8%AA%D9%87&dates=20261114T130000Z/20261114T180000Z&details=%D8%AD%D9%81%D9%84+%D8%B2%D9%81%D8%A7%D9%81+%D8%A7%D9%84%D9%85%D9%87%D9%86%D8%AF%D8%B3+%D8%A3%D8%AD%D9%85%D8%AF+%D9%88%D8%A7%D9%84%D8%AF%D9%83%D8%AA%D9%88%D8%B1%D8%A9+%D9%83%D8%B1%D9%8A%D9%85%D8%AA%D9%87+-+%D8%A5%D8%AF%D9%84%D8%A8+%D8%B5%D8%A7%D9%84%D8%A9+%D8%BA%D8%B1%D9%8A%D9%86+%D9%84%D8%A7%D9%86%D8%AF&location=%D8%B5%D8%A7%D9%84%D8%A9+%D8%BA%D8%B1%D9%8A%D9%86+%D9%84%D8%A7%D9%86%D8%AF%D8%8C+%D8%A5%D8%AF%D9%84%D8%A8" target="_blank" class="btn-incard-calendar">
           <i class="fa-regular fa-calendar-plus" style="color: var(--gold-dark);"></i>
           <span>حفظ الموعد في تقويم الهاتف</span>
         </a>
@@ -709,10 +762,18 @@
         <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
         <div class="detail-content">
           <h4>المكان والصالة</h4>
-          <p><strong>إدلب – صالة غرين لاند (شام لاند سابقاً)</strong></p>
-          <p>أوتوستراد إدلب – معرتمصرين (قبل مفرق كفريا بـ 500 متر)</p>
+          <p><strong>صالة غرين لاند (شام لاند سابقاً)</strong></p>
+          <p>أوتوستراد إدلب – معرتمصرين، خلف مبنى اكتفاء</p>
+          
           <div class="hall-notice-badge">
             <i class="fa-solid fa-users"></i> الصالة للنساء والتراس للرجال
+          </div>
+
+          <div class="privacy-notice-inline">
+            <i class="fa-solid fa-camera-slash privacy-notice-icon"></i>
+            <div class="privacy-notice-text">
+              حفظاً للخصوصية وتكريماً لأهل الحفل، نرجو التكرم بالامتناع عن التصوير داخل صالة النساء، شاكرين لكم طيب تعاونكم.
+            </div>
           </div>
         </div>
       </div>
@@ -721,14 +782,6 @@
       <div class="dinner-banner">
         <i class="fa-solid fa-utensils"></i>
         <span>ويُسعدنا تشريفكم لتناول طعام العشاء احتفاءً بهذه المناسبة المباركة</span>
-      </div>
-
-      <!-- Privacy & Camera Notice -->
-      <div class="privacy-notice-box">
-        <i class="fa-solid fa-camera-slash privacy-notice-icon"></i>
-        <div class="privacy-notice-text">
-          حفظاً للخصوصية وتكريماً لأهل الحفل، نرجو التكرم بالامتناع عن التصوير داخل صالة النساء، شاكرين لكم طيب تعاونكم.
-        </div>
       </div>
 
       <!-- Map Action -->
@@ -801,10 +854,11 @@
     }
     setupCountdown();
 
-    // Floating Olive Leaves, Soft Blossoms, and Golden Butterflies
+    // Ambient Floating Elements
     const canvas = document.getElementById('ambientCanvas');
     const ctx = canvas.getContext('2d');
-    let width, height;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
 
     function resize() {
       width = canvas.width = window.innerWidth;
@@ -819,23 +873,23 @@
 
       reset(init = false) {
         this.x = Math.random() * width;
-        this.y = init ? Math.random() * height : height + 25;
-        this.size = this.type === 'butterfly' ? Math.random() * 8 + 12 : Math.random() * 6 + 10;
-        this.speedY = -(Math.random() * 0.55 + 0.35);
-        this.speedX = (Math.random() - 0.5) * 0.7;
-        this.opacity = Math.random() * 0.45 + 0.35;
+        this.y = init ? Math.random() * height : height + 15;
+        this.size = this.type === 'butterfly' ? Math.random() * 4 + 9 : Math.random() * 4 + 8;
+        this.speedY = -(Math.random() * 0.4 + 0.25);
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.opacity = Math.random() * 0.28 + 0.2;
         this.angle = Math.random() * Math.PI * 2;
-        this.spin = (Math.random() - 0.5) * 0.02;
+        this.spin = (Math.random() - 0.5) * 0.015;
         this.wingFlap = Math.random() * Math.PI;
       }
 
       update() {
         this.y += this.speedY;
-        this.x += this.speedX + Math.sin(this.y * 0.012) * 0.4;
+        this.x += this.speedX;
         this.angle += this.spin;
-        this.wingFlap += 0.14;
+        this.wingFlap += 0.1;
 
-        if (this.y < -35 || this.x < -35 || this.x > width + 35) {
+        if (this.y < -25 || this.x < -25 || this.x > width + 25) {
           this.reset(false);
         }
       }
@@ -847,36 +901,36 @@
         ctx.globalAlpha = this.opacity;
 
         if (this.type === 'flower') {
-          ctx.fillStyle = 'rgba(255, 245, 247, 0.75)';
+          ctx.fillStyle = 'rgba(255, 245, 247, 0.7)';
           for (let i = 0; i < 5; i++) {
             ctx.beginPath();
             ctx.rotate((Math.PI * 2) / 5);
-            ctx.ellipse(0, this.size * 0.6, this.size * 0.35, this.size * 0.65, 0, 0, Math.PI * 2);
+            ctx.ellipse(0, this.size * 0.5, this.size * 0.3, this.size * 0.55, 0, 0, Math.PI * 2);
             ctx.fill();
           }
-          ctx.fillStyle = 'rgba(212, 175, 55, 0.8)';
+          ctx.fillStyle = 'rgba(212, 175, 55, 0.7)';
           ctx.beginPath();
-          ctx.arc(0, 0, this.size * 0.2, 0, Math.PI * 2);
+          ctx.arc(0, 0, this.size * 0.18, 0, Math.PI * 2);
           ctx.fill();
         } else if (this.type === 'leaf') {
-          ctx.fillStyle = 'rgba(42, 82, 66, 0.55)';
+          ctx.fillStyle = 'rgba(42, 82, 66, 0.45)';
           ctx.beginPath();
-          ctx.ellipse(0, 0, this.size * 0.35, this.size * 0.85, 0.3, 0, Math.PI * 2);
+          ctx.ellipse(0, 0, this.size * 0.3, this.size * 0.75, 0.3, 0, Math.PI * 2);
           ctx.fill();
         } else {
           const flap = Math.abs(Math.sin(this.wingFlap));
-          ctx.fillStyle = 'rgba(212, 175, 55, 0.75)';
+          ctx.fillStyle = 'rgba(212, 175, 55, 0.65)';
           
           ctx.beginPath();
-          ctx.ellipse(this.size * 0.6 * flap, -this.size * 0.3, this.size * 0.6 * flap, this.size * 0.38, 0.3, 0, Math.PI * 2);
+          ctx.ellipse(this.size * 0.5 * flap, -this.size * 0.25, this.size * 0.5 * flap, this.size * 0.32, 0.3, 0, Math.PI * 2);
           ctx.fill();
           
           ctx.beginPath();
-          ctx.ellipse(-this.size * 0.6 * flap, -this.size * 0.3, this.size * 0.6 * flap, this.size * 0.38, -0.3, 0, Math.PI * 2);
+          ctx.ellipse(-this.size * 0.5 * flap, -this.size * 0.25, this.size * 0.5 * flap, this.size * 0.32, -0.3, 0, Math.PI * 2);
           ctx.fill();
 
-          ctx.fillStyle = 'rgba(27, 56, 45, 0.7)';
-          ctx.fillRect(-1, -this.size * 0.45, 2, this.size * 0.85);
+          ctx.fillStyle = 'rgba(27, 56, 45, 0.5)';
+          ctx.fillRect(-1, -this.size * 0.35, 1.8, this.size * 0.7);
         }
 
         ctx.restore();
@@ -886,7 +940,7 @@
     const items = [];
     function initAmbient() {
       items.length = 0;
-      const count = Math.min(34, Math.floor(width / 20));
+      const count = Math.min(14, Math.floor(width / 35));
       for (let i = 0; i < count; i++) {
         const pick = i % 3;
         items.push(new FloatingItem(pick === 0 ? 'butterfly' : pick === 1 ? 'flower' : 'leaf'));
