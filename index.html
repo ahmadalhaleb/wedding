@@ -54,7 +54,6 @@
       position: relative;
     }
 
-    /* Ambient Flying Butterflies Canvas - Behind text cards */
     .ambient-canvas {
       position: fixed;
       top: 0;
@@ -65,7 +64,6 @@
       z-index: 1;
     }
 
-    /* Envelope Screen */
     #envelope-screen {
       position: fixed;
       inset: 0;
@@ -210,7 +208,6 @@
       50% { opacity: 1; transform: scale(1.04); }
     }
 
-    /* Main Container */
     .main-wrapper {
       position: relative;
       z-index: 5;
@@ -222,7 +219,6 @@
       align-items: center;
     }
 
-    /* Royal Invitation Card */
     .card-royal {
       width: 100%;
       background: var(--card-ivory);
@@ -244,7 +240,6 @@
       pointer-events: none;
     }
 
-    /* Botanical Corner Branches */
     .botanical-branch {
       position: absolute;
       pointer-events: none;
@@ -267,7 +262,6 @@
       transform: rotate(180deg);
     }
 
-    /* Realistic Margins Butterflies (Fixed around the borders) */
     .static-butterfly {
       position: absolute;
       pointer-events: none;
@@ -340,7 +334,6 @@
       margin-bottom: 18px;
     }
 
-    /* Symmetrical Hosts Grid */
     .symmetric-hosts-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -393,7 +386,6 @@
       z-index: 3;
     }
 
-    /* Symmetrical Couple Section */
     .symmetric-couple-grid {
       display: flex;
       align-items: center;
@@ -436,7 +428,6 @@
       font-style: italic;
     }
 
-    /* Date, Calendar & Countdown Block */
     .card-date-schedule {
       margin-top: 24px;
       padding: 16px;
@@ -484,7 +475,6 @@
       transform: translateY(-1px);
     }
 
-    /* In-Card Countdown directly under date */
     .countdown-in-card {
       margin-top: 14px;
       padding: 14px 10px;
@@ -529,7 +519,6 @@
       font-weight: 600;
     }
 
-    /* Details Card */
     .details-card {
       width: 100%;
       margin-top: 24px;
@@ -577,7 +566,6 @@
       line-height: 1.6;
     }
 
-    /* Map Action Button directly after Location */
     .btn-map-action {
       display: inline-flex;
       align-items: center;
@@ -614,7 +602,6 @@
       font-weight: 700;
     }
 
-    /* Strict Photography Prohibition Notice */
     .privacy-notice-strict {
       margin-bottom: 18px;
       padding: 12px 14px;
@@ -638,7 +625,6 @@
       line-height: 1.5;
     }
 
-    /* Dinner Banner */
     .dinner-banner {
       background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(27, 56, 45, 0.04));
       border: 1px solid rgba(212, 175, 55, 0.4);
@@ -680,10 +666,8 @@
 </head>
 <body>
 
-  <!-- Ambient Flying Canvas: Only 3 realistic butterflies around borders -->
   <canvas id="ambientCanvas" class="ambient-canvas"></canvas>
 
-  <!-- Envelope Screen -->
   <div id="envelope-screen">
     <div class="envelope-outer-container">
       <div class="envelope-wrapper" id="envelope-trigger">
@@ -695,7 +679,6 @@
         <div class="env-silk-ribbon"></div>
         <div class="env-flap"></div>
         
-        <!-- Clean Wax Seal -->
         <div class="wax-seal">
           <i class="fa-solid fa-crown"></i>
           <div class="monogram-text">
@@ -713,28 +696,22 @@
     </div>
   </div>
 
-  <!-- Main Content -->
   <div class="main-wrapper">
-    <!-- Main Card -->
     <main class="card-royal">
       
-      <!-- Rich Botanical Watercolor Bouquet - Top Right -->
+      <!-- Top Right Bouquet -->
       <svg class="botanical-branch branch-top-right" viewBox="0 0 220 220">
-        <!-- Stems -->
         <path d="M 220,0 Q 150,45 110,120 T 25,185" fill="none" stroke="#254233" stroke-width="2.2" stroke-linecap="round"/>
         <path d="M 155,55 Q 95,70 65,120" fill="none" stroke="#254233" stroke-width="1.6" stroke-linecap="round"/>
         <path d="M 190,25 Q 130,22 90,60" fill="none" stroke="#254233" stroke-width="1.3" stroke-linecap="round"/>
-        <!-- Broad & Delicate Watercolor Leaves -->
         <path d="M 175,45 Q 140,25 165,5 Z" fill="#527964" opacity="0.8"/>
         <path d="M 135,75 Q 100,60 125,95 Z" fill="#3b5d4b" opacity="0.85"/>
         <path d="M 90,130 Q 60,110 90,145 Z" fill="#2d4a3b" opacity="0.8"/>
         <path d="M 55,165 Q 25,150 50,180 Z" fill="#406351" opacity="0.75"/>
-        <!-- Secondary Twigs & Leaves -->
         <ellipse cx="145" cy="30" rx="6" ry="12" transform="rotate(35 145 30)" fill="#688d79" opacity="0.75"/>
         <ellipse cx="80" cy="85" rx="5" ry="11" transform="rotate(55 80 85)" fill="#527964" opacity="0.8"/>
         <ellipse cx="115" cy="115" rx="5" ry="10" transform="rotate(25 115 115)" fill="#688d79" opacity="0.75"/>
         
-        <!-- Large Blossom 1 (Top Center) -->
         <g transform="translate(145, 90)">
           <circle cx="0" cy="-14" r="11" fill="#e5eef5" stroke="#334e68" stroke-width="0.8" opacity="0.95"/>
           <circle cx="13" cy="-4" r="11" fill="#f0f4f8" stroke="#334e68" stroke-width="0.8" opacity="0.95"/>
@@ -744,7 +721,6 @@
           <circle cx="0" cy="0" r="5" fill="#132a21"/>
           <circle cx="0" cy="0" r="2.5" fill="#d4af37"/>
         </g>
-        <!-- Medium Blossom 2 (Lower Branch) -->
         <g transform="translate(85, 150) scale(0.85)">
           <circle cx="0" cy="-14" r="11" fill="#e5eef5" stroke="#334e68" stroke-width="0.8" opacity="0.95"/>
           <circle cx="13" cy="-4" r="11" fill="#f0f4f8" stroke="#334e68" stroke-width="0.8" opacity="0.95"/>
@@ -754,7 +730,6 @@
           <circle cx="0" cy="0" r="5" fill="#132a21"/>
           <circle cx="0" cy="0" r="2.5" fill="#d4af37"/>
         </g>
-        <!-- Small Flower 3 (Upper Right) -->
         <g transform="translate(180, 35) scale(0.68)">
           <circle cx="0" cy="-12" r="10" fill="#e5eef5" stroke="#334e68" stroke-width="0.8"/>
           <circle cx="11" cy="-3" r="10" fill="#f0f4f8" stroke="#334e68" stroke-width="0.8"/>
@@ -764,13 +739,12 @@
           <circle cx="0" cy="0" r="4" fill="#132a21"/>
           <circle cx="0" cy="0" r="2" fill="#d4af37"/>
         </g>
-        <!-- Golden Decorative Stamens & Buds -->
         <circle cx="45" cy="185" r="3.5" fill="#d4af37"/>
         <circle cx="110" cy="65" r="3" fill="#d4af37"/>
         <circle cx="195" cy="15" r="3.5" fill="#d4af37"/>
       </svg>
 
-      <!-- Rich Botanical Watercolor Bouquet - Bottom Left -->
+      <!-- Bottom Left Bouquet -->
       <svg class="botanical-branch branch-bottom-left" viewBox="0 0 220 220">
         <path d="M 220,0 Q 150,45 110,120 T 25,185" fill="none" stroke="#254233" stroke-width="2.2" stroke-linecap="round"/>
         <path d="M 155,55 Q 95,70 65,120" fill="none" stroke="#254233" stroke-width="1.6" stroke-linecap="round"/>
@@ -800,7 +774,7 @@
         </g>
       </svg>
 
-      <!-- Realistic Fixed Border Butterflies -->
+      <!-- Side Butterflies -->
       <svg class="static-butterfly bf-left" viewBox="0 0 50 50">
         <path d="M 25,25 Q 5,10 8,2 Q 20,4 25,22 Z" fill="#edf2f7" stroke="#334e68" stroke-width="0.8"/>
         <path d="M 25,25 Q 8,28 10,40 Q 18,38 25,26 Z" fill="#d9e2ec" stroke="#334e68" stroke-width="0.8"/>
@@ -832,7 +806,7 @@
 
       <div class="single-yatasharaf">يَتَشَرَّف</div>
 
-      <!-- Symmetrical Hosts: Guaranteed One Line -->
+      <!-- Symmetrical Hosts -->
       <div class="symmetric-hosts-grid">
         <div class="host-col">
           <div class="prefix">السيد</div>
@@ -851,7 +825,7 @@
         بدعوتكم لمشاركتهم أسعد اللحظات في حفل زفاف ولديهما
       </p>
 
-      <!-- Symmetrical Couple: المهندس أحمد و الدكتورة كريمته -->
+      <!-- Symmetrical Couple -->
       <div class="symmetric-couple-grid">
         <div class="person-name-unified">المهندس أحمد</div>
         <div class="couple-waw">و</div>
@@ -862,7 +836,7 @@
         «بَارَكَ اللَّهُ لَهُمَا وَبَارَكَ عَلَيْهِمَا وَجَمَعَ بَيْنَهُمَا فِي خَيْرٍ»
       </div>
 
-      <!-- In-Card Schedule, Calendar & Countdown Directly Following -->
+      <!-- In-Card Schedule, Calendar & Countdown -->
       <div class="card-date-schedule">
         <div class="card-date-text">يوم السبت 14 من الشهر الحالي</div>
         <div class="card-time-text">الساعة 4:00 عصراً</div>
@@ -872,7 +846,6 @@
           <span>حفظ الموعد في تقويم الهاتف</span>
         </a>
 
-        <!-- Countdown directly under date/schedule -->
         <div class="countdown-in-card">
           <div class="countdown-title">الوقت المتبقي لليلة الفرح المباركة</div>
           <div class="timer-grid">
@@ -900,7 +873,7 @@
         </div>
       </div>
 
-      <!-- Map Action Button directly after Location -->
+      <!-- Map Action Button -->
       <a href="https://maps.google.com/?q=35.998585,36.677376" target="_blank" class="btn-map-action">
         <i class="fa-solid fa-map-location-dot"></i>
         <span>فتح موقع الصالة على الخريطة (Google Maps)</span>
@@ -913,7 +886,7 @@
         </div>
       </div>
 
-      <!-- Strict Photography Prohibition Notice -->
+      <!-- Photography Prohibition Notice -->
       <div class="privacy-notice-strict">
         <i class="fa-solid fa-ban privacy-notice-icon"></i>
         <div class="privacy-notice-text">
@@ -980,7 +953,7 @@
     }
     setupCountdown();
 
-    // Gentle Realistic Butterflies (3 only, flying in borders around cards)
+    // 3 Gentle Border Butterflies
     const canvas = document.getElementById('ambientCanvas');
     const ctx = canvas.getContext('2d');
     let width = window.innerWidth;
@@ -993,12 +966,11 @@
 
     class BorderButterfly {
       constructor(side) {
-        this.side = side; // 'left' or 'right'
+        this.side = side;
         this.reset(true);
       }
 
       reset(init = false) {
-        // Keeps them strictly on the sides and edges away from center text
         if (this.side === 'left') {
           this.x = Math.random() * (width * 0.18);
         } else {
@@ -1018,7 +990,6 @@
         this.x += this.speedX + Math.sin(this.y * 0.015) * 0.3;
         this.wingFlap += 0.13;
 
-        // Reset if goes off top or wanders into the reading center
         if (this.y < -40 || (this.side === 'left' && this.x > width * 0.22) || (this.side === 'right' && this.x < width * 0.78)) {
           this.reset(false);
         }
@@ -1035,7 +1006,6 @@
         ctx.strokeStyle = 'rgba(51, 78, 104, 0.6)';
         ctx.lineWidth = 0.7;
 
-        // Left & Right Wings
         ctx.beginPath();
         ctx.ellipse(this.size * 0.65 * flap, -this.size * 0.3, this.size * 0.65 * flap, this.size * 0.38, 0.3, 0, Math.PI * 2);
         ctx.fill();
@@ -1046,7 +1016,6 @@
         ctx.fill();
         ctx.stroke();
 
-        // Delicate Body
         ctx.fillStyle = '#1b382d';
         ctx.fillRect(-0.9, -this.size * 0.4, 1.8, this.size * 0.8);
 
@@ -1054,7 +1023,6 @@
       }
     }
 
-    // Exactly 3 elegant butterflies flying strictly around the edges
     const butterflies = [
       new BorderButterfly('left'),
       new BorderButterfly('right'),
