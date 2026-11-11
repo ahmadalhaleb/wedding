@@ -54,7 +54,6 @@
       position: relative;
     }
 
-    /* Ambient Canvas overlaying smoothly without blocking interaction */
     .ambient-canvas {
       position: fixed;
       inset: 0;
@@ -62,7 +61,7 @@
       z-index: 99;
     }
 
-    /* Envelope Screen */
+    /* Envelope Presentation */
     #envelope-screen {
       position: fixed;
       inset: 0;
@@ -148,7 +147,7 @@
       z-index: 2;
     }
 
-    /* Classic Clean Royal Wax Seal */
+    /* Clean Classic Wax Seal - No Circular Wreath Lines */
     .wax-seal {
       position: relative;
       z-index: 5;
@@ -220,7 +219,7 @@
       align-items: center;
     }
 
-    /* Royal Invitation Card */
+    /* Main Royal Invitation Card */
     .card-royal {
       width: 100%;
       background: var(--card-ivory);
@@ -286,7 +285,7 @@
       margin-bottom: 18px;
     }
 
-    /* Hosts Grid */
+    /* Symmetrical Hosts Grid */
     .symmetric-hosts-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -332,12 +331,12 @@
       font-weight: 600;
     }
 
-    /* Symmetrical Couple Section: Unified Prestige Olive-Gold Tone */
+    /* Symmetrical Couple Section: Same Exact Color & Arabic 'و' */
     .symmetric-couple-grid {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      display: flex;
       align-items: center;
-      gap: 14px;
+      justify-content: center;
+      gap: 16px;
       margin: 25px 0;
       padding: 22px 14px;
       background: linear-gradient(135deg, #ffffff, #f7f4ea);
@@ -346,24 +345,22 @@
       box-shadow: 0 6px 18px rgba(27, 56, 45, 0.06);
     }
 
-    .couple-col .person-name {
+    .person-name-unified {
       font-family: 'Amiri', serif;
-      font-size: 2.2rem;
+      font-size: 2.25rem;
       font-weight: 800;
       line-height: 1.3;
-      /* Unified Royal Olive Color for both Ahmad & Karimtuh */
-      color: #1a382b;
+      color: #1a382b !important; /* Guaranteed Same Rich Dark Tone for Both */
       text-shadow: 0 1px 2px rgba(212, 175, 55, 0.2);
     }
 
-    /* Arabic Conjunction Letter 'و' */
     .couple-waw {
       font-family: 'Amiri', serif;
       font-size: 2.1rem;
       color: var(--gold-dark);
       font-weight: 700;
       line-height: 1;
-      padding: 0 4px;
+      padding: 0 6px;
     }
 
     .hadith-quote {
@@ -603,14 +600,14 @@
     }
 
     @media (max-width: 480px) {
-      .couple-col .person-name { font-size: 1.85rem; }
+      .person-name-unified { font-size: 1.85rem; }
       .host-col .name { font-size: 1.15rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Olive Leaves, Blossoms, and Golden Butterflies Canvas -->
+  <!-- Floating Ambient Canvas -->
   <canvas id="ambientCanvas" class="ambient-canvas"></canvas>
 
   <!-- Envelope Screen -->
@@ -625,7 +622,7 @@
         <div class="env-silk-ribbon"></div>
         <div class="env-flap"></div>
         
-        <!-- Clean Wax Seal -->
+        <!-- Clean Classic Wax Seal -->
         <div class="wax-seal">
           <i class="fa-solid fa-crown"></i>
           <div class="monogram-text">
@@ -679,17 +676,11 @@
         بدعوتكم لمشاركتهم أسعد اللحظات في حفل زفاف ولديهما
       </p>
 
-      <!-- Symmetrical Couple: Ahmad & Karimtuh with Arabic 'و' -->
+      <!-- Symmetrical Couple: Ahmad & Karimtuh with Unified Color & Arabic 'و' -->
       <div class="symmetric-couple-grid">
-        <div class="couple-col">
-          <div class="person-name">أحمد</div>
-        </div>
-        
+        <div class="person-name-unified">أحمد</div>
         <div class="couple-waw">و</div>
-
-        <div class="couple-col">
-          <div class="person-name">كريمته</div>
-        </div>
+        <div class="person-name-unified">كريمته</div>
       </div>
 
       <div class="hadith-quote">
@@ -810,7 +801,7 @@
     }
     setupCountdown();
 
-    // Floating Olive Leaves, Soft Floral Blossoms, and Elegant Golden Butterflies
+    // Floating Olive Leaves, Soft Blossoms, and Golden Butterflies
     const canvas = document.getElementById('ambientCanvas');
     const ctx = canvas.getContext('2d');
     let width, height;
@@ -822,7 +813,7 @@
 
     class FloatingItem {
       constructor(type) {
-        this.type = type; // 'leaf', 'flower', 'butterfly'
+        this.type = type;
         this.reset(true);
       }
 
@@ -832,7 +823,7 @@
         this.size = this.type === 'butterfly' ? Math.random() * 8 + 12 : Math.random() * 6 + 10;
         this.speedY = -(Math.random() * 0.55 + 0.35);
         this.speedX = (Math.random() - 0.5) * 0.7;
-        this.opacity = Math.random() * 0.45 + 0.3; // Soft transparent non-distracting
+        this.opacity = Math.random() * 0.45 + 0.35;
         this.angle = Math.random() * Math.PI * 2;
         this.spin = (Math.random() - 0.5) * 0.02;
         this.wingFlap = Math.random() * Math.PI;
@@ -856,7 +847,6 @@
         ctx.globalAlpha = this.opacity;
 
         if (this.type === 'flower') {
-          // Soft bridal blossom petals
           ctx.fillStyle = 'rgba(255, 245, 247, 0.75)';
           for (let i = 0; i < 5; i++) {
             ctx.beginPath();
@@ -864,19 +854,16 @@
             ctx.ellipse(0, this.size * 0.6, this.size * 0.35, this.size * 0.65, 0, 0, Math.PI * 2);
             ctx.fill();
           }
-          // Gold center
           ctx.fillStyle = 'rgba(212, 175, 55, 0.8)';
           ctx.beginPath();
           ctx.arc(0, 0, this.size * 0.2, 0, Math.PI * 2);
           ctx.fill();
         } else if (this.type === 'leaf') {
-          // Olive leaf
           ctx.fillStyle = 'rgba(42, 82, 66, 0.55)';
           ctx.beginPath();
           ctx.ellipse(0, 0, this.size * 0.35, this.size * 0.85, 0.3, 0, Math.PI * 2);
           ctx.fill();
         } else {
-          // Golden Butterfly with flapping wings
           const flap = Math.abs(Math.sin(this.wingFlap));
           ctx.fillStyle = 'rgba(212, 175, 55, 0.75)';
           
@@ -899,7 +886,6 @@
     const items = [];
     function initAmbient() {
       items.length = 0;
-      // Increased count for lively celebration ambiance
       const count = Math.min(34, Math.floor(width / 20));
       for (let i = 0; i < count; i++) {
         const pick = i % 3;
