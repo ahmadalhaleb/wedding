@@ -714,7 +714,7 @@
 </head>
 <body>
 
-  <!-- Butterfly Flying Canvas strictly restricted to side corridors with smooth fading -->
+  <!-- Butterfly Flying Canvas strictly restricted to side corridors -->
   <canvas id="ambientCanvas" class="ambient-canvas"></canvas>
 
   <div id="envelope-screen">
@@ -1091,7 +1091,7 @@
     }
     setupCountdown();
 
-    // Realistic Butterflies with Smooth Fade-in & Fade-out transitions
+    // Butterflies strictly constrained to outer margins with smooth transitions
     const canvas = document.getElementById('ambientCanvas');
     const ctx = canvas.getContext('2d');
     let width = window.innerWidth;
@@ -1110,42 +1110,64 @@
       }
 
       reset(init = false) {
+        // Strict boundary: Only first 10% of left edge or last 10% of right edge
         if (this.side === 'left') {
-          this.x = Math.random() * (width * 0.12) + 8;
+          this.minX = 6;
+          this.maxX = width * 0.10;
+          this.x = init ? Math.random() * (this.maxX - this.minX) + this.minX : this.minX + 8;
         } else {
-          this.x = width - (Math.random() * (width * 0.12) + 8);
+          this.minX = width - (width * 0.10);
+          this.maxX = width - 6;
+          this.x = init ? Math.random() * (this.maxX - this.minX) + this.minX : this.maxX - 8;
         }
-        this.y = init ? Math.random() * height : height + 30;
-        this.size = Math.random() * 4 + 13;
-        this.speedY = -(Math.random() * 0.45 + 0.35);
-        this.speedX = (Math.random() - 0.5) * 0.35;
+
+        this.y = init ? Math.random() * (height * 0.8) + (height * 0.15) : height + 25;
+        this.size = Math.random() * 3 + 12;
+        this.speedY = -(Math.random() * 0.4 + 0.35);
+        this.speedX = (Math.random() - 0.5) * 0.25;
         this.baseOpacity = Math.random() * 0.15 + 0.8;
-        this.opacity = 0; // Starts with zero for soft fade-in
-        this.angle = (Math.random() - 0.5) * 0.35;
+        this.opacity = init ? this.baseOpacity : 0;
+        this.angle = (Math.random() - 0.5) * 0.25;
         this.wingFlap = Math.random() * Math.PI;
-        this.fadingOut = false;
       }
 
       update() {
         this.y += this.speedY;
-        this.x += this.speedX + Math.sin(this.y * 0.015) * 0.35;
+        this.x += this.speedX + Math.sin(this.y * 0.012) * 0.25;
         this.wingFlap += 0.14;
 
-        // Smooth Fade-in when ascending from bottom
-        if (this.y > height - 120 && !this.fadingOut) {
-          this.opacity = Math.min(this.baseOpacity, this.opacity + 0.02);
-        } else if (this.y <= height - 120 && this.y >= 140 && !this.fadingOut) {
+        // Strict Horizontal Corridor Clamp
+        if (this.side === 'left') {
+          if (this.x > this.maxX) {
+            this.x = this.maxX;
+            this.speedX = -Math.abs(this.speedX);
+          } else if (this.x < this.minX) {
+            this.x = this.minX;
+            this.speedX = Math.abs(this.speedX);
+          }
+        } else {
+          if (this.x < this.minX) {
+            this.x = this.minX;
+            this.speedX = Math.abs(this.speedX);
+          } else if (this.x > this.maxX) {
+            this.x = this.maxX;
+            this.speedX = -Math.abs(this.speedX);
+          }
+        }
+
+        // Smooth Fade In at Bottom
+        if (this.y > height - 100) {
+          this.opacity = Math.min(this.baseOpacity, (height - this.y + 25) / 100 * this.baseOpacity);
+        } 
+        // Smooth Fade Out at Top
+        else if (this.y < 120) {
+          this.opacity = Math.max(0, (this.y + 25) / 145 * this.baseOpacity);
+        } else {
           this.opacity = this.baseOpacity;
         }
 
-        // Soft Fade-out when nearing top or wandering slightly
-        if (this.y < 140) {
-          this.fadingOut = true;
-          this.opacity = Math.max(0, this.opacity - 0.015);
-        }
-
-        // Reset gently once fully invisible or past top
-        if (this.y < -30 || this.opacity <= 0.01) {
+        // Clean Reset
+        if (this.y < -35 || this.opacity <= 0.005) {
           this.reset(false);
         }
       }
