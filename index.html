@@ -194,7 +194,6 @@
       }
     }
 
-    /* Classical Imperial Crown SVG */
     .royal-crown-svg {
       width: 26px;
       height: 18px;
@@ -715,7 +714,7 @@
 </head>
 <body>
 
-  <!-- Butterfly Flying Canvas strictly restricted to side corridors -->
+  <!-- Butterfly Flying Canvas strictly restricted to side corridors with smooth fading -->
   <canvas id="ambientCanvas" class="ambient-canvas"></canvas>
 
   <div id="envelope-screen">
@@ -732,20 +731,15 @@
         <!-- Wax Seal with Imperial Coronet & Throbbing Heartbeat -->
         <div class="wax-seal">
           <svg class="royal-crown-svg" viewBox="0 0 40 28">
-            <!-- Crown Base Band -->
             <path d="M 6,24 Q 20,26 34,24 L 34,21 Q 20,23 6,21 Z" fill="#ffd875"/>
-            <!-- Embedded Gems in Base -->
             <circle cx="12" cy="22.5" r="1.1" fill="#fff"/>
             <circle cx="20" cy="23.2" r="1.3" fill="#fff"/>
             <circle cx="28" cy="22.5" r="1.1" fill="#fff"/>
-            <!-- Imperial Spikes and Arches -->
             <path d="M 6,21 L 8,11 Q 14,16 20,6 Q 26,16 32,11 L 34,21 Q 20,23 6,21 Z" fill="#ffe8ab" stroke="#b38728" stroke-width="0.8"/>
             <path d="M 14,15 Q 20,9 26,15" fill="none" stroke="#d4af37" stroke-width="0.8"/>
-            <!-- Pearls on Crown Peaks -->
             <circle cx="8" cy="10" r="1.8" fill="#ffffff" stroke="#b38728" stroke-width="0.6"/>
             <circle cx="20" cy="5" r="2.3" fill="#ffffff" stroke="#b38728" stroke-width="0.6"/>
             <circle cx="32" cy="10" r="1.8" fill="#ffffff" stroke="#b38728" stroke-width="0.6"/>
-            <!-- Petite Cross atop Central Pearl -->
             <path d="M 20,1.2 L 20,3.6 M 18.8,2.4 L 21.2,2.4" stroke="#ffd875" stroke-width="0.8"/>
           </svg>
 
@@ -767,7 +761,7 @@
   <div class="main-wrapper">
     <main class="card-royal">
       
-      <!-- Top Right Bouquet: Pure Botanical 5-Petal Wildflower Motif -->
+      <!-- Top Right Bouquet -->
       <svg class="botanical-branch branch-top-right" viewBox="0 0 210 210">
         <path d="M 210,0 Q 165,22 135,70 T 70,140" fill="none" stroke="#254233" stroke-width="1.6" stroke-linecap="round"/>
         <path d="M 165,30 Q 125,45 105,85" fill="none" stroke="#254233" stroke-width="1.2" stroke-linecap="round"/>
@@ -779,7 +773,6 @@
         <path d="M 118,85 Q 98,72 118,55 Z" fill="#2d4a3b" opacity="0.75"/>
         <path d="M 88,122 Q 68,110 88,95 Z" fill="#527964" opacity="0.7"/>
 
-        <!-- Blossom 1 -->
         <g transform="translate(150, 65)">
           <circle cx="0" cy="-11" r="9" fill="#edf4f0" stroke="#254233" stroke-width="0.8" opacity="0.95"/>
           <circle cx="10.5" cy="-3.5" r="9" fill="#f4faf6" stroke="#254233" stroke-width="0.8" opacity="0.95"/>
@@ -795,7 +788,6 @@
           <circle cx="-5.5" cy="-2" r="1" fill="#132a21"/>
         </g>
 
-        <!-- Blossom 2 -->
         <g transform="translate(108, 102) scale(0.92)">
           <circle cx="0" cy="-11" r="9" fill="#edf4f0" stroke="#254233" stroke-width="0.8" opacity="0.95"/>
           <circle cx="10.5" cy="-3.5" r="9" fill="#f4faf6" stroke="#254233" stroke-width="0.8" opacity="0.95"/>
@@ -811,7 +803,6 @@
           <circle cx="-5.5" cy="-2" r="1" fill="#132a21"/>
         </g>
 
-        <!-- Blossom 3 -->
         <g transform="translate(175, 24) scale(0.72)">
           <circle cx="0" cy="-10" r="8" fill="#edf4f0" stroke="#254233" stroke-width="0.8"/>
           <circle cx="9.5" cy="-3" r="8" fill="#f4faf6" stroke="#254233" stroke-width="0.8"/>
@@ -822,7 +813,6 @@
           <circle cx="0" cy="0" r="2" fill="#d4af37"/>
         </g>
 
-        <!-- Buds -->
         <g transform="translate(70, 132) scale(0.6)">
           <circle cx="0" cy="-8" r="6" fill="#edf4f0" stroke="#254233" stroke-width="0.7"/>
           <circle cx="7" cy="0" r="6" fill="#f4faf6" stroke="#254233" stroke-width="0.7"/>
@@ -980,7 +970,7 @@
     <div class="wedding-signature">
       <div class="rings-icon-wrapper">
         <svg class="ring-svg" viewBox="0 0 82 52">
-          <!-- Left Ring: Masculine (Solid Wide Gold Band with polished beveled edge) -->
+          <!-- Left Ring: Masculine (Solid Wide Gold Band) -->
           <circle cx="28" cy="28" r="17" fill="none" stroke="#b38728" stroke-width="4.8"/>
           <circle cx="28" cy="28" r="17" fill="none" stroke="#fbf5b7" stroke-width="2.2"/>
           <circle cx="28" cy="28" r="14.2" fill="none" stroke="#8c6d23" stroke-width="0.8"/>
@@ -1101,7 +1091,7 @@
     }
     setupCountdown();
 
-    // Realistic Edge Corridor Butterflies
+    // Realistic Butterflies with Smooth Fade-in & Fade-out transitions
     const canvas = document.getElementById('ambientCanvas');
     const ctx = canvas.getContext('2d');
     let width = window.innerWidth;
@@ -1125,13 +1115,15 @@
         } else {
           this.x = width - (Math.random() * (width * 0.12) + 8);
         }
-        this.y = init ? Math.random() * height : height + 35;
+        this.y = init ? Math.random() * height : height + 30;
         this.size = Math.random() * 4 + 13;
         this.speedY = -(Math.random() * 0.45 + 0.35);
         this.speedX = (Math.random() - 0.5) * 0.35;
-        this.opacity = Math.random() * 0.15 + 0.8;
+        this.baseOpacity = Math.random() * 0.15 + 0.8;
+        this.opacity = 0; // Starts with zero for soft fade-in
         this.angle = (Math.random() - 0.5) * 0.35;
         this.wingFlap = Math.random() * Math.PI;
+        this.fadingOut = false;
       }
 
       update() {
@@ -1139,12 +1131,28 @@
         this.x += this.speedX + Math.sin(this.y * 0.015) * 0.35;
         this.wingFlap += 0.14;
 
-        if (this.y < -45 || (this.side === 'left' && this.x > width * 0.16) || (this.side === 'right' && this.x < width * 0.84)) {
+        // Smooth Fade-in when ascending from bottom
+        if (this.y > height - 120 && !this.fadingOut) {
+          this.opacity = Math.min(this.baseOpacity, this.opacity + 0.02);
+        } else if (this.y <= height - 120 && this.y >= 140 && !this.fadingOut) {
+          this.opacity = this.baseOpacity;
+        }
+
+        // Soft Fade-out when nearing top or wandering slightly
+        if (this.y < 140) {
+          this.fadingOut = true;
+          this.opacity = Math.max(0, this.opacity - 0.015);
+        }
+
+        // Reset gently once fully invisible or past top
+        if (this.y < -30 || this.opacity <= 0.01) {
           this.reset(false);
         }
       }
 
       draw() {
+        if (this.opacity <= 0.01) return;
+
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate(this.angle);
@@ -1216,7 +1224,7 @@
         ctx.lineTo(-8 * flap, 14);
         ctx.stroke();
 
-        // Body & Antennae
+        // Slender Body & Antennae
         ctx.fillStyle = edgeColor;
         ctx.beginPath();
         ctx.ellipse(0, 3, 1.2, 8, 0, 0, Math.PI * 2);
