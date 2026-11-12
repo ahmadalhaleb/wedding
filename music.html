@@ -1058,9 +1058,10 @@
   <script src="https://www.youtube.com/iframe_api"></script>
 
   <script>
-    // YouTube Player Initialization
+    // YouTube Player with Seamless Gapless Loop
     let player;
     let isPlaying = false;
+    let seamlessLoopTimer = null;
     const musicToggleBtn = document.getElementById('musicToggleBtn');
 
     function onYouTubeIframeAPIReady() {
@@ -1071,18 +1072,52 @@
         playerVars: {
           'autoplay': 0,
           'controls': 0,
-          'loop': 1,
-          'playlist': 'xR4dqdl3GjE',
           'playsinline': 1
         },
         events: {
-          'onReady': onPlayerReady
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
         }
       });
     }
 
     function onPlayerReady(event) {
-      // Ready state handler
+      player.setVolume(100);
+    }
+
+    function onPlayerStateChange(event) {
+      // Fallback if video somehow reaches end
+      if (event.data === YT.PlayerState.ENDED && isPlaying) {
+        player.seekTo(0.3, true);
+        player.playVideo();
+      }
+    }
+
+    // Monitor track time and loop seamlessly before silent outro
+    function startSeamlessMonitor() {
+      if (seamlessLoopTimer) clearInterval(seamlessLoopTimer);
+      seamlessLoopTimer = setInterval(() => {
+        if (!isPlaying || !player || typeof player.getDuration !== 'function') return;
+
+        const duration = player.getDuration();
+        const currentTime = player.getCurrentTime();
+
+        if (duration > 0) {
+          const remaining = duration - currentTime;
+
+          // Smooth fade-out right before jump (last 1.4 seconds)
+          if (remaining <= 1.4 && remaining > 1.15) {
+            const vol = Math.max(35, Math.floor((remaining / 1.4) * 100));
+            player.setVolume(vol);
+          }
+
+          // Jump back to start seamlessly at 1.15s before end to eliminate silence gap
+          if (remaining <= 1.15) {
+            player.seekTo(0.35, true);
+            player.setVolume(100);
+          }
+        }
+      }, 150);
     }
 
     // Toggle Music Play / Pause
@@ -1095,8 +1130,10 @@
         musicToggleBtn.classList.remove('playing');
         musicToggleBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
       } else {
+        player.setVolume(100);
         player.playVideo();
         isPlaying = true;
+        startSeamlessMonitor();
         musicToggleBtn.classList.add('playing');
         musicToggleBtn.innerHTML = '<i class="fa-solid fa-music"></i>';
       }
@@ -1116,10 +1153,12 @@
 
       envelopeScreen.classList.add('opened');
 
-      // Start music automatically on opening envelope
+      // Start music automatically with seamless looping
       if (player && typeof player.playVideo === 'function') {
+        player.setVolume(100);
         player.playVideo();
         isPlaying = true;
+        startSeamlessMonitor();
         musicToggleBtn.classList.add('playing');
         musicToggleBtn.innerHTML = '<i class="fa-solid fa-music"></i>';
       }
