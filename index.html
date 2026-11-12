@@ -224,7 +224,7 @@
       background: var(--card-ivory);
       border: 1px solid rgba(212, 175, 55, 0.35);
       border-radius: 28px;
-      padding: 110px 20px 48px 20px; /* Ample top clearance to prevent any overlap */
+      padding: 120px 20px 48px 20px; /* Ample clearance to guarantee no text overlap */
       box-shadow: 0 15px 45px rgba(27, 56, 45, 0.08);
       position: relative;
       text-align: center;
@@ -241,26 +241,29 @@
       z-index: 2;
     }
 
-    /* Elegant English/Damask Rose Bouquets */
-    .botanical-branch {
+    /* High-Resolution Real Watercolor Rose Corner Images */
+    .real-rose-corner {
       position: absolute;
       pointer-events: none;
       z-index: 1;
+      object-fit: contain;
     }
 
-    .branch-top-right {
-      top: -5px;
-      right: -5px;
-      width: 175px;
-      height: 175px;
+    .rose-top-right {
+      top: -10px;
+      right: -10px;
+      width: 190px;
+      height: 190px;
+      opacity: 0.95;
     }
 
-    .branch-bottom-left {
-      bottom: -5px;
-      left: -5px;
-      width: 165px;
-      height: 165px;
+    .rose-bottom-left {
+      bottom: -10px;
+      left: -10px;
+      width: 170px;
+      height: 170px;
       transform: rotate(180deg);
+      opacity: 0.9;
     }
 
     .bismillah {
@@ -658,15 +661,15 @@
     @media (max-width: 480px) {
       .person-name-unified { font-size: 1.6rem; }
       .host-col .name { font-size: 1.05rem; }
-      .branch-top-right { width: 145px; height: 145px; }
-      .branch-bottom-left { width: 135px; height: 135px; }
-      .card-royal { padding-top: 105px; }
+      .rose-top-right { width: 160px; height: 160px; }
+      .rose-bottom-left { width: 145px; height: 145px; }
+      .card-royal { padding-top: 110px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Ambient Flying Canvas for Realistic Butterflies strictly flying along borders -->
+  <!-- Butterfly Flying Corridor Canvas -->
   <canvas id="ambientCanvas" class="ambient-canvas"></canvas>
 
   <div id="envelope-screen">
@@ -700,87 +703,9 @@
   <div class="main-wrapper">
     <main class="card-royal">
       
-      <!-- Top Right Bouquet: Multi-layered Realistic Damask/English Roses & Golden Accents -->
-      <svg class="botanical-branch branch-top-right" viewBox="0 0 200 200">
-        <defs>
-          <radialGradient id="roseGrad1" cx="40%" cy="40%" r="60%">
-            <stop offset="0%" stop-color="#fff0f3"/>
-            <stop offset="45%" stop-color="#f8bbd0"/>
-            <stop offset="85%" stop-color="#f06292"/>
-            <stop offset="100%" stop-color="#c2185b"/>
-          </radialGradient>
-          <radialGradient id="roseGrad2" cx="35%" cy="35%" r="65%">
-            <stop offset="0%" stop-color="#ffffff"/>
-            <stop offset="50%" stop-color="#fce4ec"/>
-            <stop offset="90%" stop-color="#ec407a"/>
-            <stop offset="100%" stop-color="#ad1457"/>
-          </radialGradient>
-        </defs>
-
-        <!-- Golden Vines & Stems -->
-        <path d="M 200,0 Q 155,25 125,75 T 70,140" fill="none" stroke="#254233" stroke-width="2.2" stroke-linecap="round"/>
-        <path d="M 160,35 Q 115,50 90,95" fill="none" stroke="#d4af37" stroke-width="1.4" stroke-linecap="round"/>
-
-        <!-- Olive & Forest Leaves (Watercolor style) -->
-        <path d="M 180,25 C 150,15 145,-5 170,-10 C 190,-5 195,15 180,25 Z" fill="#4d6f5c" opacity="0.9"/>
-        <path d="M 145,55 C 115,40 120,15 140,20 C 160,25 165,50 145,55 Z" fill="#385b48" opacity="0.9"/>
-        <path d="M 105,100 C 80,85 85,60 105,65 C 125,70 125,95 105,100 Z" fill="#2d4a3b" opacity="0.85"/>
-        <ellipse cx="120" cy="15" rx="5" ry="12" transform="rotate(40 120 15)" fill="#688d79" opacity="0.8"/>
-        <ellipse cx="75" cy="65" rx="5" ry="11" transform="rotate(50 75 65)" fill="#527964" opacity="0.8"/>
-
-        <!-- Main Open Rose 1 (Top Center Corner) -->
-        <g transform="translate(148, 70)">
-          <!-- Outer Petal Layer -->
-          <path d="M 0,-24 C 15,-24 24,-12 24,0 C 24,15 12,24 0,24 C -15,24 -24,12 -24,0 C -24,-15 -12,-24 0,-24 Z" fill="url(#roseGrad1)" opacity="0.95"/>
-          <!-- Middle Cup Petals -->
-          <path d="M -16,-6 C -18,-18 4,-20 14,-14 C 22,-5 18,16 0,18 C -14,18 -18,10 -16,-6 Z" fill="url(#roseGrad2)"/>
-          <path d="M -10,-12 C -6,-20 12,-18 16,-8 C 18,6 6,14 -4,12 C -14,10 -14,-4 -10,-12 Z" fill="#f8bbd0"/>
-          <!-- Rose Core/Heart -->
-          <path d="M -6,-4 C -3,-11 7,-10 9,-3 C 11,4 4,9 -1,8 C -6,6 -8,1 -6,-4 Z" fill="#e91e63"/>
-          <ellipse cx="0" cy="0" rx="3.5" ry="2.5" fill="#880e4f"/>
-        </g>
-
-        <!-- Secondary Blooming Rose 2 (Lower Corner) -->
-        <g transform="translate(95, 120) scale(0.82)">
-          <path d="M 0,-22 C 14,-22 22,-10 22,0 C 22,14 10,22 0,22 C -14,22 -22,10 -22,0 C -22,-14 -10,-22 0,-22 Z" fill="url(#roseGrad1)" opacity="0.95"/>
-          <path d="M -14,-4 C -16,-15 4,-17 12,-12 C 18,-4 15,14 0,15 C -12,15 -15,8 -14,-4 Z" fill="url(#roseGrad2)"/>
-          <path d="M -8,-9 C -5,-16 10,-15 13,-6 C 15,5 5,11 -3,10 C -11,8 -11,-3 -8,-9 Z" fill="#f8bbd0"/>
-          <ellipse cx="0" cy="0" rx="3" ry="2" fill="#880e4f"/>
-        </g>
-
-        <!-- Rose Bud 3 (Upper Outer Edge) -->
-        <g transform="translate(178, 25) scale(0.65)">
-          <path d="M 0,-18 C 12,-18 18,-8 18,0 C 18,12 8,18 0,18 C -12,18 -18,8 -18,0 C -18,-12 -8,-18 0,-18 Z" fill="url(#roseGrad2)"/>
-          <path d="M -8,-6 C -4,-13 8,-12 11,-4 C 14,5 5,11 -3,10 C -10,8 -11,0 -8,-6 Z" fill="#f06292"/>
-          <ellipse cx="0" cy="0" rx="2.5" ry="2" fill="#880e4f"/>
-        </g>
-
-        <!-- Golden Sparkle & Berries -->
-        <circle cx="58" cy="145" r="3.5" fill="#d4af37"/>
-        <circle cx="118" cy="45" r="3" fill="#d4af37"/>
-        <circle cx="190" cy="10" r="3.5" fill="#d4af37"/>
-      </svg>
-
-      <!-- Bottom Left Bouquet: Complementary Real Damask Roses -->
-      <svg class="botanical-branch branch-bottom-left" viewBox="0 0 200 200">
-        <path d="M 200,0 Q 155,25 125,75 T 70,140" fill="none" stroke="#254233" stroke-width="2.2" stroke-linecap="round"/>
-        <path d="M 180,25 C 150,15 145,-5 170,-10 C 190,-5 195,15 180,25 Z" fill="#4d6f5c" opacity="0.9"/>
-        <path d="M 145,55 C 115,40 120,15 140,20 C 160,25 165,50 145,55 Z" fill="#385b48" opacity="0.9"/>
-        <path d="M 105,100 C 80,85 85,60 105,65 C 125,70 125,95 105,100 Z" fill="#2d4a3b" opacity="0.85"/>
-        <ellipse cx="120" cy="15" rx="5" ry="12" transform="rotate(40 120 15)" fill="#688d79" opacity="0.8"/>
-        
-        <g transform="translate(148, 70)">
-          <path d="M 0,-24 C 15,-24 24,-12 24,0 C 24,15 12,24 0,24 C -15,24 -24,12 -24,0 C -24,-15 -12,-24 0,-24 Z" fill="#f8bbd0" opacity="0.95"/>
-          <path d="M -16,-6 C -18,-18 4,-20 14,-14 C 22,-5 18,16 0,18 C -14,18 -18,10 -16,-6 Z" fill="#f06292"/>
-          <path d="M -10,-12 C -6,-20 12,-18 16,-8 C 18,6 6,14 -4,12 C -14,10 -14,-4 -10,-12 Z" fill="#fce4ec"/>
-          <ellipse cx="0" cy="0" rx="3.5" ry="2.5" fill="#880e4f"/>
-        </g>
-        <g transform="translate(95, 120) scale(0.82)">
-          <path d="M 0,-22 C 14,-22 22,-10 22,0 C 22,14 10,22 0,22 C -14,22 -22,10 -22,0 C -22,-14 -10,-22 0,-22 Z" fill="#f8bbd0" opacity="0.95"/>
-          <path d="M -14,-4 C -16,-15 4,-17 12,-12 C 18,-4 15,14 0,15 C -12,15 -15,8 -14,-4 Z" fill="#f06292"/>
-          <ellipse cx="0" cy="0" rx="3" ry="2" fill="#880e4f"/>
-        </g>
-      </svg>
+      <!-- High-Quality Transparent Realistic Rose Bouquets -->
+      <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=400&q=80" alt="Rose Corner" class="real-rose-corner rose-top-right">
+      <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=400&q=80" alt="Rose Corner" class="real-rose-corner rose-bottom-left">
 
       <div class="bismillah">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</div>
       <div class="quran-ayah">
@@ -890,7 +815,7 @@
       </div>
     </section>
 
-    <!-- Classical Golden Interlocking Rings Signature -->
+    <!-- Interlocking Rings Signature -->
     <div class="wedding-signature">
       <div class="rings-icon-wrapper">
         <svg class="ring-svg" viewBox="0 0 60 40">
@@ -954,7 +879,7 @@
     }
     setupCountdown();
 
-    // Realistic Butterflies Flying strictly around red-marked side corridors
+    // Realistic Edge Butterflies
     const canvas = document.getElementById('ambientCanvas');
     const ctx = canvas.getContext('2d');
     let width = window.innerWidth;
